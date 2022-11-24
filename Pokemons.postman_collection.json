@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "e6dabb82-dfb4-4cdb-a111-d5a1d4f2b9e2",
+		"name": "Pokemons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24422761"
+	},
+	"item": [
+		{
+			"name": "Charmander",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Charmander name\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('pokemonName1'));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander weight\", function () {\r",
+							"    pm.expect(jsonData.weight).to.eql(85);\r",
+							"});\r",
+							"\r",
+							"//pm.test(\"Charmander weight\", function () {\r",
+							"  //  pm.expect(jsonData.weight).to.eql(pm.environment.get('pokemonWeight1'));\r",
+							"//});\r",
+							"\r",
+							"pm.test(\"Charmander number of abilities\", function () {\r",
+							"    const abilitiesNumber = pm.response.json().abilities;\r",
+							"    pm.expect(abilitiesNumber.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander ability names\", function () {\r",
+							"        const charmanderAbilitiesResponse = pm.response.json().abilities;\r",
+							"        const charmanderAbilities = [\"blaze\", \"solar-power\"];\r",
+							"    for (let i = 0; i < charmanderAbilitiesResponse.length; i++) {\r",
+							"       pm.expect(charmanderAbilitiesResponse[i].ability.name).to.be.oneOf(charmanderAbilities);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander number of types\", function () {\r",
+							"    const typesNumber = pm.response.json().types;\r",
+							"    pm.expect(typesNumber.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander type names\", function () {\r",
+							"    pm.expect(jsonData.types[0].type.name).to.eql(\"fire\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v2/pokemon/{{pokemonName1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"{{pokemonName1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulbasaur",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Bulbasaur name\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('pokemonName2'));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur weight\", function () {\r",
+							"    pm.expect(jsonData.weight).to.eql(69);\r",
+							"});\r",
+							"\r",
+							"//pm.test(\"Bulbasaur weight\", function () {\r",
+							"  //  pm.expect(jsonData.weight).to.eql(pm.environment.get('pokemonWeight2'));\r",
+							"//});\r",
+							"\r",
+							"pm.test(\"Bulbasaur number of abilities\", function () {\r",
+							"    const abilitiesNumber = pm.response.json().abilities;\r",
+							"    pm.expect(abilitiesNumber.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur ability names\", function () {\r",
+							"        const bulbasaurAbilitiesResponse = pm.response.json().abilities;\r",
+							"        const bulbasaurAbilities = [\"overgrow\", \"chlorophyll\"];\r",
+							"        \r",
+							"    for (let i = 0; i < bulbasaurAbilitiesResponse.length; i++) {\r",
+							"       pm.expect(bulbasaurAbilitiesResponse[i].ability.name).to.be.oneOf(bulbasaurAbilities);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur number of types\", function () {\r",
+							"    const typesNumber = pm.response.json().types;\r",
+							"    pm.expect(typesNumber.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur type names\", function () {\r",
+							"    const bulbasaurTypesResponse = pm.response.json().types;\r",
+							"    const bulbasaurTypes = [\"grass\", \"poison\"];\r",
+							"    for (let i = 0; i < bulbasaurTypesResponse.length; i++) {\r",
+							"        pm.expect(bulbasaurTypesResponse[i].type.name).to.be.oneOf(bulbasaurTypes);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v2/pokemon/{{pokemonName2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"{{pokemonName2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Squirtle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Squirtle name\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"pokemonName3\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle weight\", function () {\r",
+							"    pm.expect(jsonData.weight).to.eql(90);\r",
+							"});\r",
+							"\r",
+							"//pm.test(\"Squirtle weight\", function () {\r",
+							"//    pm.expect(jsonData.weight).to.eql(pm.environment.get(\"pokemonName3\"));\r",
+							"//});\r",
+							"\r",
+							"pm.test(\"Squirtle number of abilities\", function () {\r",
+							"    const abilitiesNumber = pm.response.json().abilities;\r",
+							"    pm.expect(abilitiesNumber.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle ability names\", function () {\r",
+							"        const squirtleAbilitiesResponse = pm.response.json().abilities;\r",
+							"        const squirtleAbilities = [\"torrent\", \"rain-dish\"];\r",
+							"        \r",
+							"    for (let i = 0; i < squirtleAbilitiesResponse.length; i++) {\r",
+							"       pm.expect(squirtleAbilitiesResponse[i].ability.name).to.be.oneOf(squirtleAbilities);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle number of types\", function () {\r",
+							"    const typesNumber = pm.response.json().types;\r",
+							"    pm.expect(typesNumber.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle type names\", function () {\r",
+							"    const squirtleTypesResponse = pm.response.json().types;\r",
+							"    const squirtleTypes = [\"water\"];\r",
+							"    for (let i = 0; i < squirtleTypesResponse.length; i++) {\r",
+							"        pm.expect(squirtleTypesResponse[i].type.name).to.be.oneOf(squirtleTypes);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v2/pokemon/{{pokemonName3}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"{{pokemonName3}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
